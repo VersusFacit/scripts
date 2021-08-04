@@ -40,7 +40,7 @@ while read -s -r -n1 user_input; do
     1) redshift_now "${MATCH_FLAME}" ;;
     2) redshift_now "${COOL_WHITE}" ;;
     3) modulate_brightness 0.02;;
-    4) modulate_brightness 0.07;;
+    4) modulate_brightness 0.05;;
     5) modulate_brightness 0.15;;
     *) exit 0
   esac
