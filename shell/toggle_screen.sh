@@ -27,12 +27,13 @@ redshift_now() {
   redshift -P -O "$*" > /dev/null
 }
 
-printf "Choose a command: \n %s\n %s\n %s\n %s\n %s\n" \
+printf "Choose a command: \n %s\n %s\n %s\n %s\n %s\n %s\n" \
   "1. Use match flame" \
   "2. Use cool white" \
   "3. Set to darkroom brightness" \
   "4. Set to usual daytime brightness" \
-  "4. Set to brighter daytime brightness"
+  "5. Set to brighter daytime brightness" \
+  "   Any other key will exit"
 
 while read -s -r -n1 user_input; do
   case "${user_input}" in
@@ -41,7 +42,7 @@ while read -s -r -n1 user_input; do
     3) modulate_brightness 0.02;;
     4) modulate_brightness 0.07;;
     5) modulate_brightness 0.15;;
-    *) printf "Exiting script.\n" ; exit 0
+    *) exit 0
   esac
 done
 
