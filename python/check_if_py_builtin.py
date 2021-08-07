@@ -5,7 +5,9 @@ import sys
 
 
 def get_pkgs_installed():
-    return [p.name for p in pkgutil.iter_modules() if p.name[0] != '_']
+    return [
+        p.name for p in pkgutil.iter_modules() if p.name[0] != '_'
+    ] + [p for p in list(sys.builtin_module_names) if p[0] != '_']
 
 
 def pip_freeze():
