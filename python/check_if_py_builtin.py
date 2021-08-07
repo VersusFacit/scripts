@@ -5,9 +5,11 @@ import sys
 
 
 def get_pkgs_installed():
-    return [
-        p.name for p in pkgutil.iter_modules() if p.name[0] != '_'
-    ] + [p for p in list(sys.builtin_module_names) if p[0] != '_']
+    # all modules can be imported at runtime
+    module_names = [p.name for p in pkgutil.iter_modules() if p.name[0] != '_']
+    # tuple of the names of all modules compiled into this Python interpreter
+    + [p for p in sys.builtin_module_names if p[0] != '_']
+    return module_names
 
 
 def pip_freeze():
